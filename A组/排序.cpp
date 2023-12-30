@@ -7,6 +7,7 @@ typedef struct node {
 	struct node* next;
 }node;
 
+//--------------ª˘ ˝≈≈–Ú-----------
 void write(node* base, int n,char e[10][DATA_CUT+1])
 {
 	
@@ -98,6 +99,7 @@ void sort(node*& base,int data_cut,int n)
 		resTail->next = NULL;
 	}
 }
+//---------------ª˘ ˝≈≈–Ú---------------
 int a[10] = {6, 12, 458, 5, 4, 28, 19, 1230, 9, 47};
 void printArray(int c[], int l, int r);
 void swap(int& a, int& b)
@@ -106,6 +108,7 @@ void swap(int& a, int& b)
 	a = b;
 	b = c;
 }
+//-------------œ£∂˚≈≈–Ú----------------
 void shell_sort(int a[],int r,int d)
 {
 	while (d > 0)
@@ -124,6 +127,9 @@ void shell_sort(int a[],int r,int d)
 		d /= 2;
 	}
 }
+//----------------œ£∂˚≈≈–Ú----------------
+
+//-----------------øÏÀŸ≈≈–Ú----------------
 void quick_sort(int a[], int l, int r)
 {
 	if (l >= r) return;
@@ -140,8 +146,11 @@ void quick_sort(int a[], int l, int r)
 			swap(a[i], a[j]);
 	}
 	quick_sort(a, l, j);
-	quick_sort(a, l + 1, r);
+	quick_sort(a, j + 1, r);
 }
+//-----------øÏÀŸ≈≈–Ú------------------
+
+//------------∂—≈≈–Ú--------------------
 void sift(int a[], int now, int height) //¥Û∏˘∂—
 {
 	int i = now;
@@ -176,7 +185,7 @@ void sift_little(int a[], int now, int height) //–°∏˘∂—
 		else break;
 	}
 }
-void heap_sort(int a[], int l, int r)
+void heap_sort(int a[], int l, int r) //∂—≈≈–Ú--¥Û∏˘∂—
 {
 	for (int i = r/2; i >= 1; i--)
 		sift(a, i, r);
@@ -186,7 +195,7 @@ void heap_sort(int a[], int l, int r)
 		sift(a, 1, i-1);
 	}
 }
-void heap_sort_little(int a[], int l, int r)
+void heap_sort_little(int a[], int l, int r) //∂—≈≈–Ú--–°∏˘∂—
 {
 	for (int i = r / 2; i >= 1; i--)
 		sift_little(a, i, r);
@@ -199,6 +208,8 @@ void heap_sort_little(int a[], int l, int r)
 		printf("%d ", a[i]);
 	puts("");
 }
+//--------------∂—≈≈–Ú-----------------
+
 void printArray(int c[],int l, int r)
 {
 	for (int i = l; i < r; i++)
@@ -209,6 +220,7 @@ void printArray(int c[],int l, int r)
 
 	puts("");
 }
+//-----------------πÈ≤¢≈≈–Ú---------------------
 void merge_sort(int b[], int l, int r)
 {
 	if (l >= r) return;
@@ -237,24 +249,30 @@ void merge_sort(int b[], int l, int r)
 		b[p] = tmp[m];
 	free(tmp);
 }
+//---------------------πÈ≤¢≈≈–Ú---------------
 int main()
 {
 	int b[10] = { 6, 12, 458, 5, 4, 28, 19, 1230, 9, 47 };
 	shell_sort(b, 10, 5);
+	printf("œ£∂˚≈≈–Ú:");
 	printArray(b,0, 10);
 	
 	quick_sort(b, 0, 9);
+	printf("øÏÀŸ≈≈–Ú:");
 	printArray(b,0, 10);
 
 	int c[11]={0, 6, 12, 458, 5, 4, 28, 19, 1230, 9, 47 };
 	heap_sort(c, 1, 10);
+	printf("∂—≈≈–Ú(¥Û∏˘∂—):");
 	printArray(c, 1, 11);
 
 	int d[11] = { 0, 6, 12, 458, 5, 4, 28, 19, 1230, 9, 47 };
+	printf("∂—≈≈–Ú(–°∏˘∂—):");
 	heap_sort_little(d, 1, 10);
 
 
 	merge_sort(b, 0, 9);
+	printf("πÈ≤¢≈≈–Ú:");
 	printArray(b, 0, 10);
 
 	char e[10][DATA_CUT+1] = {"0006", "0012", "0458", "0005", "0004", "0028", "0019", "1230", "0009", "0047" };
@@ -262,6 +280,7 @@ int main()
 	if (base == NULL)return 0;
 	write(base, 10, e);
 	sort(base, DATA_CUT, 10);
+	printf("ª˘ ˝≈≈–Ú:");
 	printLink(base);
 	freeLink(base);
 	return 0;
